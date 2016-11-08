@@ -68,7 +68,15 @@ Blog.objects.filter(entry__headline__contains='Lennon', entry__pub_date__year=20
 Blog.objects.filter(entry__headline__contains='Lennon').filter(entry__pub_date__year=2008)
 
 
-
+QuerySet缓存问题
+为了效率，一定要记录 queryset = Entry.objects.all()
+print(queryset[5])，查询数据库，没有缓存
+以下操作，就有了缓存
+[entry for entry in queryset]
+print(queryset[5]) 有了缓存了，使用缓存
+bool(queryset)
+entry in queryset
+list(queryset)
 
 
 
