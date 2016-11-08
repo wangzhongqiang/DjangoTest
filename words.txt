@@ -1,0 +1,208 @@
+variable ['veərɪəb(ə)l]		adj. 变量的；可变的；易变的，多变的；变异的，[生物] 畸变的
+							n. [数] 变量；可变物，可变因素
+
+specify ['spesɪfaɪ]		vt. 指定；详细说明；列举；把…列入说明书
+specific [spə'sɪfɪk] 	adj. 特殊的，特定的；明确的；详细的
+
+occur [ə'kɜː]	vi. 发生；出现；存在
+
+indicate		vt. 表明；指出；预示；象征
+
+derive  [dɪ'raɪv]	派生 vt. 源于；得自；获得		
+
+determine [dɪ'tɜːmɪn]	vi. 确定；决定；判决，终止；[主用于法律]了结，终止，结束 	
+						vt. 决定，确定；判定，判决；限定
+						
+extract [ˈekstrækt]		vt. 提取；取出；摘录；榨取
+
+regardless [rɪ'gɑːdlɪs]	adj. 不管的；不顾的；不注意的
+
+operation [ɒpə'reɪʃ(ə)n]	n. 操作；经营
+
+issue ['iʃju:]	n. 问题；流出；期号；发行物	vt. 发行，发布；发给；放出，排出 vi. 发行；流出；造成…结果；传下
+
+encounter [in'kauntə]	vt. 遭遇，邂逅；遇到 n. 遭遇，偶然碰见
+
+inheritance [ɪn'herɪt(ə)ns]		n. 继承；遗传；遗产
+
+explicit [ik'splisit]	adj. 明确的；清楚的；直率的；详述的
+
+modify ['mɒdɪfaɪ] 	vt. 修改，修饰；更改
+
+interpreter [ɪn'tɜːprɪtə]	n. 解释者；口译者；注释器
+
+pretend [prɪ'tend]	vi. 假装，伪装，佯装 adj. 假装的
+
+assign	[ə'saɪn]	vt. 分配；指派；[计][数] 赋值
+
+valid ['vælɪd]		adj. 有效的；有根据的；合法的；正当的
+
+instantiation [ɪnstænʃɪ'eɪʃən]	n. 实例化；[计] 例示
+
+container  [kən'teɪnə]		n. 集装箱；容器
+
+concise [kən'saɪs]		adj. 简明的，简洁的
+
+compact compact		n. 合同，契约；小粉盒	adj. 紧凑的，紧密的；简洁的 vt. 使简洁；使紧密结合
+
+utility [juːˈtɪlɪtɪ] 	n. 实用；效用；公共设施；功用 adj. 实用的；通用的；有多种用途的
+
+Pattern ['pæt(ə)n]		n. 模式；图案；样品	vt. 模仿；以图案装饰
+
+regular ['regjʊlə]		adj. 定期的；有规律的；合格的；整齐的；普通的	n. 常客；正式队员；中坚分子	adv. 定期地；经常地
+
+complex ['kɒmpleks]		adj. 复杂的；合成的	n. 复合体；综合设施
+
+range  [reɪn(d)ʒ]		n. 范围；幅度；排；山脉	vi. （在...内）变动；平行，列为一行；延伸；漫游；射程达到	vt. 漫游；放牧；使并列；归类于；来回走动
+
+frequently	['friːkw(ə)ntlɪ]	adv. 频繁地，经常地；时常，屡次
+
+syntax ['sɪntæks]		n. 语法；句法；有秩序的排列
+access ['ækses]			vt. 使用；存取；接近 n. 进入；使用权；通路
+accessing	v. [计] 访问（access的ing形式）；接近；到达
+
+available  [ə'veɪləb(ə)l]	adj. 可获得的；可购得的；可找到的；有空的
+
+represent  [reprɪ'zent]		vt. 代表；表现；描绘；回忆；再赠送 vi. 代表；提出异议
+
+reference ['ref(ə)r(ə)ns]	n. 参考，参照；涉及，提及；参考书目；介绍信；证明书	vi. 引用
+
+regular ['regjʊlə]			adj. 定期的；有规律的；合格的；整齐的；普通的 n. 常客；正式队员；中坚分子	adv. 定期地；经常地
+expression [ɪkˈspreʃn]		n. 表现，表示，表达；表情，脸色，态度，腔调，声调；式，符号；词句，语句，措辞，说法
+regular expression	正则表达式
+RegEx				正则表达式
+
+
+trailing['treɪlɪŋ] 	adj. 后面的；拖尾的；牵引的；被拖动的；蔓延的 n. 拖尾；泥浆彩饰v. 尾随（trail的ing形式）
+slash [slæʃ]		vt. 猛砍；鞭打；严厉批评；大幅度裁减或削减n. 削减；斜线；猛砍；砍痕；沼泽低地
+trailing slash		尾斜杠, 结尾反斜杠
+
+chop [tʃɒp]			n. 砍；排骨；商标；削球	vt. 剁碎；砍
+
+remaining [rɪ'meɪnɪŋ]		adj. 剩下的，剩余的
+
+parameter [pə'ræmɪtə]	n. 参数；系数；参量
+
+fantastic [fæn'tæstɪk]	adj. 奇异的；空想的；异想天开的；古怪的；极好的，极出色的；不可思议的；不切实际的	n. 古怪的人
+
+expert	['ekspɜːt]	adj. 熟练的；内行的；老练的 n. 专家；行家；能手 vt. 当专家；在…中当行家
+
+capture  ['kæptʃə]	vt. 俘获；夺得；捕捉，拍摄,录制	n. 捕获；战利品，俘虏
+
+performance [pə'fɔːm(ə)ns]	n. 性能；绩效；表演；执行；表现
+
+arbitrary  ['ɑːbɪt(rə)rɪ]	adj. [数] 任意的；武断的；专制的
+
+appropriate [ə'prəʊprɪət]	adj. 适当的；恰当的；合适的	vt. 占用，拨出
+
+distribute [ə'prəʊprɪət]	adj. 适当的；恰当的；合适的 vt. 占用，拨出
+
+migrate [mai'ɡreit]			vi. 移动；随季节而移居；移往 vt. 使移居；使移植
+
+accord 	[ə'kɔːd]		n. 符合；一致；协议；自愿 vt. 使一致；给予 vi. 符合；一致
+
+goal [gəʊl]			n. 目标；球门，得分数；终点	vi. 攻门，射门得分
+
+fields	['fiːldz]	n. 域，字段；场设置（field复数形式）v. 使上场（field的单三形式）
+
+publication [,pʌblɪ'keɪʃ(ə)n]	n. 出版；出版物；发表
+
+associate [ə'səuʃieit ]	vi. 交往；结交 n. 同事，伙伴；关联的事物
+
+design [dɪ'zaɪn]	vt. 设计；计划；构思	n. 设计；图案
+
+require [rɪ'kwaɪə] vt. 需要；要求；命令
+
+support [sə'pɔːt]	vt. 支持，支撑，支援；扶持，帮助；赡养，供养 n. 支持，维持；支援，供养；支持者，支撑物
+
+filter ['fɪltə]		vi. 滤过；渗入；慢慢传开 n. 滤波器；[化工] 过滤器；筛选；滤光器 vt. 过滤；渗透；用过滤法除去
+
+correspond [kɒrɪ'spɒnd]	vi. 符合，一致；相应；通信
+
+publish ['pʌblɪʃ]		vt. 出版；发表；公布 vi. 出版；发行；刊印
+
+generate 	['dʒenəreɪt]	vt. 使形成；发生；生殖；产生物理反应
+generally 	['dʒen(ə)rəlɪ]	adv. 通常；普遍地，一般地
+general 	['dʒen(ə)r(ə)l]	adj. 一般的，普通的；综合的；大体的 n. 一般；将军，上将；常规
+
+entry [ˈɒntreɪ]			n. 进入；入口；条目；登记；报关手续；对土地的侵占
+
+particular [pəˈtɪkjʊlə(r)]	adj. 特别的；详细的；独有的；挑剔的	n. 详细说明；个别项目
+
+deliver [dɪ'lɪvə]		vt. 交付；发表；递送；释放；给予（打击）；给…接生	vi. 实现；传送；履行；投递	n. 投球
+
+examine [iɡ'zæmin]		vt. 检查；调查； 检测；考试	vi. 检查；调查
+
+simply ['sɪmplɪ]		adv. 简单地；仅仅；简直；朴素地；坦白地
+
+wire [waɪə]		n. 电线；金属丝；电报 vt. 拍电报；给…装电线
+
+traverse 	n. 穿过；横贯；横木 vt. 穿过；反对；详细研究；在…来回移动 vi. 横越；旋转；来回移动 adj. 横贯的
+traverse something in order 遍历某事
+
+identify [aɪ'dentɪfaɪ]		vt. 确定；鉴定；识别，辨认出；使参与；把…看成一样 vi. 确定；认同；一致
+
+convenient [kən'viːnɪənt]	adj. 方便的；[废语]适当的；[口语]近便的；实用的
+
+configure	[kən'fɪgə]	vt. 安装；使成形
+option ['ɒpʃ(ə)n]		n. [计] 选项；选择权；买卖的特权
+
+backend ['bækend]		n. 后端
+
+convention	[kən'venʃ(ə)n]	n. 大会；[法] 惯例；[计] 约定；[法] 协定；习俗
+
+distinguish  [dɪ'stɪŋgwɪʃ]	vt. 区分；辨别；使杰出，使表现突出	vi. 区别，区分；辨别
+
+foremost ['fɔːməʊst]	adj. 最重要的；最先的	adv. 首先；居于首位地
+
+maintain  [meɪn'teɪn; mən'teɪn]	vt. 维持；继续；维修；主张；供养
+
+loose [luːs] 	adj. 宽松的；散漫的；不牢固的；不精确的 vt. 释放；开船；放枪 vi. 变松；开火
+
+differentiate [,dɪfə'renʃɪeɪt]	vi. 区分，区别 vt. 区分，区别
+
+alter ['ɔ:ltə]	vt. 改变，更改	vi. 改变；修改
+server-side		n. 服务器端
+
+indicate ['ɪndɪkeɪt]	vt. 表明；指出；预示；象征
+
+mention ['menʃ(ə)n]		vt. 提到，谈到；提及，论及；说起 n. 提及，说起
+
+response [rɪ'spɒns]		n. 响应；反应；回答
+request   [rɪ'kwest]	n. 请求；需要 vt. 要求，请求
+
+solve [sɒlv]			vt. 解决；解答；溶解 vi. 作解答
+
+efficient [ɪ'fɪʃ(ə)nt]	adj. 有效率的；有能力的；生效的
+
+transaction [træn'zækʃən; -'sæk-; trɑ:n-]	n. 交易；事务；办理；会报，学报
+
+recommend [rekə'mend]			vt. 推荐，介绍；劝告；使受欢迎；托付
+
+restriction [rɪ'strɪkʃ(ə)n]		n. 限制；约束；束缚
+
+instantiate [ɪn'stænʃɪeɪt]		vt. 例示，举例说明
+
+explicitly [ɪk'splɪsɪtli]		adv. 明确地；明白地
+
+chain [tʃeɪn]					n. 链；束缚；枷锁 vt. 束缚；囚禁；用铁链锁住
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

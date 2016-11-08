@@ -1,0 +1,88 @@
+使用 ... 表示select * from tablename
+
+where字句中使用的操作符： = , <>, > , <, >= , <= between, like 
+	... where i between 1 and 2;  	范围是否包括1和2 看具体数据库定义
+	... where i between 1 and 2;
+	
+SELECT TOP number|percent column_name(s) FROM table_name 规定返回的记录的数目
+和mysql limit 一样
+
+where itemname like '%'	%代替一个或者多个字符
+where itemname like '_'	_ 代替一个字符
+
+...where itemname in (value1,value2)	itemname  匹配value1 和value2的
+
+as:	select * from tablename1 as otherName1, tablename2 as otherName2
+
+改变显示名字为otherName1，otherName2
+select itemname1 as otherName1, itemname2 as otherName2 from tablename
+
+
+两个表 name不同的集合
+SELECT E_Name FROM Employees_China
+UNION
+SELECT E_Name FROM Employees_USA
+
+所有的name的集合
+SELECT E_Name FROM Employees_China
+UNION ALL
+SELECT E_Name FROM Employees_USA
+
+唯一
+create table test
+(
+	id int not null unique
+)
+create table test
+(
+	id int not null,
+	unique(id)
+)
+
+id和name的组合不能有相同的
+create table test
+(
+	id int not null,
+	name int not null,
+	constraint uni_name unique(id, name)
+)
+
+
+???
+select itemname1,2... from tablename1 full join tablename2 on t1.item = t2.item;
+
+SQL SELECT INTO 实例 - 制作备份复件
+SQL SELECT INTO 实例 - 带有 WHERE 子句
+
+SELECT *
+INTO Persons (IN 'Backup.mdb')
+FROM Persons
+
+constraint pk_name primary key(itemname1, itemname2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

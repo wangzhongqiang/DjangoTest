@@ -1,0 +1,5 @@
+如果models改变（数据库table有增加，减少未知）那么运行一下命令修改数据库
+python manage.py makemigrations （ps：create migrations for those changes）
+python manage.py migrate （ps： apply those changes to the database.）
+
+super(Blog, self).save(*args, **kwargs)
