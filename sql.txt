@@ -1,0 +1,202 @@
+
+使用 ... 表示select * from tablename
+mysql 操作：
+进入mysel：					mysql -u root -p
+
+创建数据库					mysqladmin -u root -p create RUNOOB
+
+删除数据库					mysqladmin -u root -p drop RUNOOB
+
+
+
+关于对table的操作			show columns from table;	显示表的所有数据类型
+	
+
+
+
+
+选择MySQL数据库				mysql> use RUNOOB;
+选择后就可以创建table了		mysql>	create table runoob_tbl(
+									   runoob_id INT NOT NULL AUTO_INCREMENT,
+									   runoob_title VARCHAR(100) NOT NULL,
+									   runoob_author VARCHAR(40) NOT NULL,
+									   submission_date DATE,
+									   PRIMARY KEY ( runoob_id )
+									);
+删除table					mysql>	drop table runoob_tbl
+插入数据					mysql>	insert into runoob_tbl 
+									->(runoob_title, runoob_author, submission_date)
+									->VALUES
+									->("Learn PHP", "John Poul", NOW());
+							mysql>	insert into runoob_tbl 
+									->(VALUES
+									->(每项数据都要复制);							
+									
+where 条件查找		可以使用and和or
+查询数据					mysql>	select runoob_title from table_test;
+							mysql>	select * from tablename;
+							mysql>	select * from tablename where id =(!=,<>不等于,>,<,>=,<=) 1;
+							mysql>	select * from tablename \
+									where title = "字符串";
+							mysql>	select * from tablename \
+									where BINARY  title = "字符串"; (区分大小写的) binary要跟在where后面
+							mysql>	select * from tablename limit 2,1;	（第三条开始查询，取一条数据，即第三条数据）	
+							mysql>	select * from tablename limit 2 offset 1;	（第二条数据开始查询两条数据，即第二条和第三条。）						
+									重要：测试下来，不能单独使用offset，或者offset不能在放在limit前
+修改或更新					mysql>	update table_name set field1=new-value1, field2=new-value2[where Clause]
+删除						mysql>	delete from table_test where id = 1，如果没有指定 WHERE 子句，MySQL表中的所有记录将被删除。
+
+模糊查找					使用%，类似其他语言查找的 " * ", where title like "%n%",title包含n的
+
+排序						mysql>	... order by runoob_author ASC;升序 （ascend 上升）
+							mysql>	... order by runoob_author DESC;降序（descend 下降）
+
+分组 group by				mysql> 	select name, count(*) FROM   tablename group by name;
+									根据 group by 将数据表按名字进行分组，并统计每个人有多少条记录：
+	with rollup				mysql> 	select name, sum(singin) as singinCount from tablename group by name with rollup;
+									+--------+--------------+
+									| name   | singin_count |
+									+--------+--------------+
+									| 小丽 |            2 |
+									| 小明 |            7 |
+									| 小王 |            7 |
+									| NULL   |           16 |
+									with rollup 可以实现在分组统计数据基础上再进行相同的统计
+												例如我们将以上的数据表按名字进行分组，再统计每个人登录的次数：，再统计分组的人的总的记录
+	select coalesce(a,b,c);	参数说明：如果a==null,则选择b；如果b==null,则选择c；如果a!=null,则选择a；如果a b c 都为null ，则返回为null（没意义）。					
+	coalesce [,kəʊə'les]vt. 使…联合；使…合并 vi. 合并；结合；联合
+							select coalesce(name,'total'), sum(singin) as sum from tablename group by name with rollup;
+									+--------------------------+--------------+
+									| coalesce(name, '总数') | singin_count |
+									+--------------------------+--------------+
+									| 小丽		|		 2 |
+									| 小明		|		 7 |
+									| 小王		|		 7 |
+									| 总数		|		16 |
+
+多表查询（连接的使用）		mysql>		select * from tableA a inner join(可以省略inner) 	tableB b on a.s = b.s;
+							以上等价于	select * from tableA a , 							tableB b where a.s = b.s;
+							这里尝试三张表以上有点不明白
+							mysql>		select * from tableA a left join tableB b on a.s = b.s;
+										left join :会读取左边数据表的全部数据，即便右边表无对应数据。
+										select * from tableA a right join tableB b on a.s = b.s;
+										right join :会读取右边数据表的全部数据，即便左边边表无对应数据。
+
+关于 null：	null值不能使用 = 或 != 判断、查找，
+			使用 is null 和 is not null, 
+			<=>: 比较操作符（不同于=运算符），当比较的的两个值为NULL时返回true。
+			... where name is null;
+			... where name is not null;
+			... where name <=> null;
+			... where not name <=> null;
+
+正则表达式：	regexp ''
+				...where name regexp '^a';	已a开头的数据
+				...where name regexp 'a$';	已a结尾的数据
+				...where name regexp 'a$|^a';	已a开头和结尾的数据
+				...where name regexp 'a';	包含a的数据
+				还有很多，见http://www.runoob.com/mysql/mysql-regexp.html
+
+alter 命令：	mysql>	show columns from tablename	显示所有字段的数据
+				mysql>	alter table tablename drop i;	删除一个字段，只有一个字段时无法删除
+				mysql>	alter table tablename add i int(or char(10)...) 添加一个字段并定义数据类型
+				mysql>	alter table tablename add i int first  添加字段，并设置它的位置
+				mysql>	alter table tablename add i int after j  字段i添加在j后面的
+				
+				修改字段的数据类型，如果已有数据字符串可以转换为int型，那么这个字段可以转为int，int可以转为char型
+				mysql>	alter table tablename modiry i int (还可以加其他属性or char(40) not null default "30");	修改字段i的类型为int
+				mysql>	alter table tablename change i j bigint; 修改字段i为 类型为bigint的字段j
+				mysql>	alter table tablename change j j int; 	修改字段j的类型为int
+				mysql>	alter table tablename alter i set default 1000(null) 不设置default，那默认就是null，还可以设default为null
+				mysql>	alter table tablename alter i drop default;	删除default
+				修改表名
+				mysql>	alter table tablename rename to tablename_2;
+
+temporary	用于创建临时的table,这个表用show tables无法看见，退出就会被销毁
+				mysql>	create temporary table tablename(...);
+				
+复制table	1.	mysql>	show create table oldTableName \ G;
+			2.	mysql>	create talbe newTableName{
+							itemname1 typedata .....
+							itemname2 typedata .....
+							把步骤1的输出都照着写一遍
+							太傻了
+						}...
+			3.	mysql>	insert into newTableName(itemName1, itemname2,.....) select itemname1,itemname2,... from oldTableName;
+
+			
+获取服务器元数据				
+SELECT VERSION( )	服务器版本信息
+SELECT DATABASE( )	当前数据库名 (或者返回空)
+SELECT USER( )	当前用户名
+SHOW STATUS	服务器状态
+SHOW VARIABLES	服务器配置变量				
+				
+auto_increment的一些使用
+	如果设置了auto_increment,那么这个字段就应该是主键，否则
+	如果删除了数据表中的多条记录，并希望对剩下数据的auto_increment列进行重新排列
+	那么可以先删除自增的列	alter table tablename drop id
+	在重新添加				alter table tablename add id int not null auto_increment first, add primary key(id);
+	注意，在删除的时候有新纪录添加，可能会数据混乱
+	设置自增id的起始值 ：
+							原文直接 在创建table的时候  id int not null auto_increment = 100，试了不行
+							可以 alter table tablename auto_increment = 100;修改起始值
+
+							
+处理重复数据：
+	如果有primary key，那么使用	insert into table 的方法，primary key重复会报错，
+	所以可以使用 insert ignore into tablename, 忽略重复的primary key
+	还有 replace into tablename ，会替换重复的primary key
+	对于不是primary key的字段，ignore 和 replace 都不会响应
+统计重复数据：统计了itemname1 重复的数量大于1的数据
+	mysql>	select count(*) as total, itemname1
+	mysql>	from tablename
+	mysql>	group by itemname1
+	mysql>	having total > 1;
+过滤重复数据
+	mysql>	select distinct itemname1 from tablename	忽略itemname1的重复的数据
+	mysql>	select itemName1, itemname2 from tablename group by itemName1,itemname2,....;
+删除重复数据
+		create table newTablename select itemName1, itemname2 from tablename group by itemName1,itemname2,....;
+重命名
+		alter table oldTablename rename to newTablename;
+
+导出数据：http://www.runoob.com/mysql/mysql-database-export.html
+导入数据：http://www.runoob.com/mysql/mysql-database-import.html
+
+
+							
+				
+------------- 有问题的部分--------------------------				
+索引
+表的复制，没有更方便的方法了吗，需要手打，天，有100个数据怎么办
+导出数据失败了	SELECT * FROM runoob_tbl INTO OUTFILE '/tmp/tutorials.txt';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

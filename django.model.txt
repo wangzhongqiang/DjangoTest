@@ -1,0 +1,84 @@
+每个模型映射到单个数据库表
+创建model的时候一个id字段被自动添加，但这种行为可以被覆盖。见自动主键字段。
+
+继承：
+（这里只适用django）如果是抽象的，则可以重写父类的字段，不是抽象的，那么不能重写字段
+class A(models.Model):
+    first_name = models.CharField(max_length=30)
+    class Meta:
+        abstract = True
+
+class MyTestProxy(TestProxy):
+    last_name = models.CharField(max_length=30)
+
+使用 Model.objects.get(....)没有找到或者找到多个，都会raise一个error（Entry.DoesNotExist，MultipleObjectsReturned）
+
+Model.objects.all()[:5] 返回前五个，不能是负数
+Model.objects.order_by('item')[0]	按item排序，然后获取第一个
+等价于：Model.objects.order_by('item')[0:1].get()
+
+在查找中指定的字段必须是模型字段的名称 但是 ForeignKey例外， foreignModelname_itemname
+
+查询
+pub_date__lte ： <=
+pub_date__gte ： >=
+① exact 精确
+Model.objects.get(headline__exact="Cat bites dog")
+等价于：SELECT ... WHERE headline = 'Cat bites dog';
+如果没有双下划线，查询类型就假定是exact
+② iexact 不区分大小写
+③ contains 包含，文档说分大小写，测试不分大小，可能和数据库有关，类似  SELECT ... WHERE headline LIKE '%Lennon%';
+④ icontains. 不分大小的
+⑤ startswith, endswith，istartswith iendswith. 测试，也没有区分大小
+
+比较 item1 和 item2 + item3 * 3  
+from django.db.models import F	F()支持 加法，减法，乘法，除法，模数和幂运算
+Model.objects.filter(item1__lt=F('item2') + F('item3')*3)
+Model.objects.filter(Model1__attribute=F('model__attribute'))	比如关联的外键model1和多对多的model2的属性比较
+
+
+????不懂的地方
+
+
+
+ManyToManyField
+
+Base class restrictions¶
+A proxy model must inherit from exactly one non-abstract model class. You can’t inherit from multiple non-abstract models as the proxy model doesn’t provide any connection between the rows in the different database tables. A proxy model can inherit from any number of abstract model classes, providing they do not define any model fields. A proxy model may also inherit from any number of proxy models that share a common non-abstract parent class.
+
+
+Field name “hiding” is not permitted
+
+查询错误
+pub_date__gte=datetime(2005, 1, 30)
+反而 pub_date = datetime.date(2005,1,1)可以 这里的datetime 是  import datetime 来的
+所以  pub_date__gte 返回的是个什么鬼
+
+Model.objects.filter or exclude 不会查询数据库
+q = Entry.objects.filter(headline__startswith="What")
+q = q.filter(pub_date__lte=datetime.date.today())
+q = q.exclude(body_text__icontains="food")
+print(q)
+只有在print的时候，才会查询数据库
+
+Entry.objects.all()[:10:2] 返回的什么鬼
+
+Blog.objects.filter(entry__headline__contains='Lennon', entry__pub_date__year=2008)
+文档说：上面是  包含lennon并且2008，下面是  包含lennon和2008 ，测试下来，都是 包含lennon并且2008
+Blog.objects.filter(entry__headline__contains='Lennon').filter(entry__pub_date__year=2008)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
