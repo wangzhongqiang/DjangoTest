@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +49,23 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+
+if DEBUG:
+    def show_toolbar(request):
+        return True
+
+
+    DEBUG_TOOLBAR_CONFIG = {
+        "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+    }
+    INSTALLED_APPS +=[
+        'debug_toolbar',
+    ]
+    MIDDLEWARE +=[
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    ]
 
 ROOT_URLCONF = 'mysite.urls'
 
