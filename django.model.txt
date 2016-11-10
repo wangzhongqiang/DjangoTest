@@ -1,6 +1,13 @@
 每个模型映射到单个数据库表
 创建model的时候一个id字段被自动添加，但这种行为可以被覆盖。见自动主键字段。
 
+可以在cmd中显示调用数据库的过程
+import logging
+l = logging.getLogger('django.db.backends')
+l.setLevel(logging.DEBUG)
+l.addHandler(logging.StreamHandler())
+
+
 继承：
 （这里只适用django）如果是抽象的，则可以重写父类的字段，不是抽象的，那么不能重写字段
 class A(models.Model):
@@ -35,6 +42,31 @@ Model.objects.get(headline__exact="Cat bites dog")
 from django.db.models import F	F()支持 加法，减法，乘法，除法，模数和幂运算
 Model.objects.filter(item1__lt=F('item2') + F('item3')*3)
 Model.objects.filter(Model1__attribute=F('model__attribute'))	比如关联的外键model1和多对多的model2的属性比较
+
+copy:
+model = Model.objects.all()[0]
+model.pk = None or model.id = None
+model.save()	复制完成
+但是如果 Model继承了一个model，那么model.pk = None and model.id = None, model.save()
+外键如果有manyToMany 成员需要手动复制  model.authors = oldmodel.authors.all()
+
+update:
+(model.objects.filter(...))QuerySet.update(item = ...)
+文档说没有调用save(),但是结果是已经写入数据库了,说是循环调用 iterate的save
+翻译：对更新的QuerySet的唯一限制是它只能访问一个数据库表：模型的主表。 您可以根据相关字段进行过滤，但只能更新模型主表中的列
+会报FieldError 错 Entry.objects.update(headline=F('blog__name')) 不能引入连接，只能引用要更新的模型的本地字段
+
+select_related：获取外键不为None的QuerySet：Entry.objects.select_related().get(id=2)
+外键访问主表， modelForeign.mainmodename_set.all() 可以通过设置参数related_name = "waijian"修改，modelForeign.waijian.all()
+
+替换e1,e2的外键：b.entry_set.set([e1, e2])
+many-to-many （我的理解，直接当QuerySet使用）e.authors.filter(name__contains='John')，不用提及model名，直接使用name
+
+one-to-one： model1: a = oneToOne(model2) model2.model1(小写) 直接访问  
+model2.model1 = b, b.a 就是model2了，原来的b.a变了,多个model2指向一个model1，但是model1只指向一个model1
+
+
+
 
 
 ????不懂的地方
@@ -78,9 +110,12 @@ bool(queryset)
 entry in queryset
 list(queryset)
 
+e = Entry.objects.get(id=2)但是怀疑在这里已经访问了数据库
+print(e.blog)  # Hits the database to retrieve the 
 
+Using a custom reverse manager
 
-
+one-to-many 就是外键？
 
 
 

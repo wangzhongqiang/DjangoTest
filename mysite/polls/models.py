@@ -20,6 +20,8 @@ class Question(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = '最近发布'
 
+class ThemeQuestion(Question):
+    theme = models.CharField(max_length = 200)
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -115,16 +117,25 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        ordering = ['name']
 
 class Author(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField()
 
+
     def __str__(self):
         return self.name
 
+class EntityManager(models.Manager):
+    def is_published(self):
+        return True
+
 class Entity(models.Model):
-    blog = models.ForeignKey(Blog)
+    objects = models.Manager()
+    entities = EntityManager()
+    blog = models.ForeignKey(Blog, related_name = 'entity_set')
     headline = models.CharField(max_length=255)
     body_text = models.TextField()
     pub_date = models.DateField()
@@ -136,3 +147,15 @@ class Entity(models.Model):
 
     def __str__(self):
         return self.headline
+
+class EntityDetail(models.Model):
+    aentity = models.OneToOneField(Entity,on_delete=models.CASCADE)
+    detail = models.TextField()
+
+class Event(models.Model):
+   parent = models.ForeignKey(
+       'self',
+       on_delete=models.CASCADE,
+       related_name='children',
+   )
+   date = models.DateField()
