@@ -1,4 +1,7 @@
 from django.db import  models
+from django.db.models import QuerySet
+from django.db.models.functions import Coalesce
+
 
 class Fruit1(models.Model):
     name = models.Field
@@ -7,3 +10,4 @@ class Fruit(models.Model):
         Fruit1,
         on_delete=models.CASCADE
     )
+

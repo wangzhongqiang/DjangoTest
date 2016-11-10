@@ -117,6 +117,8 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        ordering = ['name']
 
 class Author(models.Model):
     name = models.CharField(max_length=200)
@@ -133,7 +135,7 @@ class EntityManager(models.Manager):
 class Entity(models.Model):
     objects = models.Manager()
     entities = EntityManager()
-    blog = models.ForeignKey(Blog, null=True, related_name = 'entity_set')
+    blog = models.ForeignKey(Blog, related_name = 'entity_set')
     headline = models.CharField(max_length=255)
     body_text = models.TextField()
     pub_date = models.DateField()
@@ -149,3 +151,11 @@ class Entity(models.Model):
 class EntityDetail(models.Model):
     aentity = models.OneToOneField(Entity,on_delete=models.CASCADE)
     detail = models.TextField()
+
+class Event(models.Model):
+   parent = models.ForeignKey(
+       'self',
+       on_delete=models.CASCADE,
+       related_name='children',
+   )
+   date = models.DateField()

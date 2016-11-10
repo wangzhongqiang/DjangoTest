@@ -1,6 +1,13 @@
 每个模型映射到单个数据库表
 创建model的时候一个id字段被自动添加，但这种行为可以被覆盖。见自动主键字段。
 
+可以在cmd中显示调用数据库的过程
+import logging
+l = logging.getLogger('django.db.backends')
+l.setLevel(logging.DEBUG)
+l.addHandler(logging.StreamHandler())
+
+
 继承：
 （这里只适用django）如果是抽象的，则可以重写父类的字段，不是抽象的，那么不能重写字段
 class A(models.Model):
