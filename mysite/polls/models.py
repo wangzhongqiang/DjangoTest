@@ -152,6 +152,7 @@ class EntityDetail(models.Model):
     aentity = models.OneToOneField(Entity,on_delete=models.CASCADE)
     detail = models.TextField()
 
+"""
 class Event(models.Model):
    parent = models.ForeignKey(
        'self',
@@ -159,3 +160,4 @@ class Event(models.Model):
        related_name='children',
    )
    date = models.DateField()
+"""
