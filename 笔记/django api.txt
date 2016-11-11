@@ -20,7 +20,7 @@ dates：year 只显示year且year不重复； month 显示年月 且年月不重复 ， day 显示年月
 model.objects.dates('itemname日期类型的', 'year 或 month 或 day'， order = 'DESC 或 ASC')
 datetime：用法和dates差不多，但是时区没有搞懂怎么改
 select_related：e = Entry.objects.get(id=5)， b = e.blog 访问外键时，两次查询数据库 e = Entry.objects.select_related('blog').get(id=5)，b = e.blog 只第一次访问数据库
-
+select_related(None)：返回所有的外键
 
 
 
