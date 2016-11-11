@@ -1,0 +1,37 @@
+
+annotate
+from django.db.models import Count
+q = Blog.objects.annotate(Count('modelname or related_name') 或 customName = Count('modelname or related_name'))
+Entity有外键Blog，如果Blog没有设置related_name那么这里就是entity，如果设置related_name，那么这里就是这个related_name
+q是一个QuerySet, q[0]就是blog  q[0].name  (q[0].modelname 或 related_name + "__count") 或 q[0].customName__count 引用这个q[0] 的model个数
+
+order_by("-date") 降序，order_by('?')随机，效率比较慢
+my_queryset.reverse()[:5] 如果my_queryset本身有排序，则reverse起作用（比如，model.objects.all()就没有作用）
+
+values()： 
+model.objects.values() 返回所有信息，
+values('itemname1','itemname2',....) itemname1和itemname2信息
+外键: values('model__id' , 'model' , 'model__itemname') (‘id’，‘id’， ‘item值’)
+values_list('id', flat = True)一个参数才能使用flat 
+values_list('id', flat = True).get(pk=1) 返回具体实例
+当values和values_list ：参数为（one-to-many relation of a reverse foreign key 或 ManyToManyField）找不到值，显示为none
+
+dates：year 只显示year且year不重复； month 显示年月 且年月不重复 ， day 显示年月日，年月日不重复
+model.objects.dates('itemname日期类型的', 'year 或 month 或 day'， order = 'DESC 或 ASC')
+datetime：用法和dates差不多，但是时区没有搞懂怎么改
+select_related：e = Entry.objects.get(id=5)， b = e.blog 访问外键时，两次查询数据库 e = Entry.objects.select_related('blog').get(id=5)，b = e.blog 只第一次访问数据库
+
+
+
+
+？？？？？？？？？？？？？？
+排序这里 Coalesce用法
+order_by()有多个条件怎么排序
+
+distinct 忽略重复数据，当前数据库不支持，未测试
+Author.objects.distinct()
+Entity.objects.order_by('pub_date').distinct('pub_date')
+Entity.objects.order_by('blog').distinct('blog')
+Entity.objects.order_by('author', 'pub_date').distinct('author', 'pub_date')
+Entity.objects.order_by('blog__name', 'mod_date').distinct('blog__name', 'mod_date')
+Entity.objects.order_by('author', 'pub_date').distinct('author')

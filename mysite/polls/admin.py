@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Question,Choice
+from .models import *
 
 #admin.site.register(Question)
 
@@ -35,6 +35,30 @@ class QuestionAdmin(admin.ModelAdmin):
     list_filter = ['pub_date']
     list_display = ('pub_date','was_published_recently','question_text',)
 
+class BlogAdmin(admin.ModelAdmin):
 
+    search_fields = ['name','tagline']
+
+class AUthorAdmin(admin.ModelAdmin):
+
+    search_fields = ['name','email']
+
+class EntityAdmin(admin.ModelAdmin):
+
+    search_fields = ['headline','pub_date']
+class ToppingAdmin(admin.ModelAdmin):
+    search_fields = ['name']
+class PizzaAdmin(admin.ModelAdmin):
+    search_fields = ['name']
+    pass
+class RestaurantAdmin(admin.ModelAdmin):
+    pass
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Author, AUthorAdmin)
 
+admin.site.register(Blog, BlogAdmin)
+admin.site.register(Entity, EntityAdmin)
+
+admin.site.register(Topping,ToppingAdmin)
+admin.site.register(Pizza,PizzaAdmin)
+admin.site.register(Restaurant,RestaurantAdmin)

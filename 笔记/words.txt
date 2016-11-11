@@ -191,11 +191,11 @@ section ['sekʃ(ə)n]			n. 截面；部分；部门；地区；章节 vi. 被切
 
 distinct [dɪ'stɪŋ(k)t]		adj. 明显的；独特的；清楚的；有区别的
 
+clause	[klɔːz]				n. 条款；[计] 子句
 
+respective [rɪ'spektɪv]		adj. 分别的，各自的
 
-
-
-
+optimization [,ɒptɪmaɪ'zeɪʃən]	n. 最佳化，最优化
 
 
 
