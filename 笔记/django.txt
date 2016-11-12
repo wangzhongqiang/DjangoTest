@@ -3,3 +3,5 @@ python manage.py makemigrations （ps：create migrations for those changes）
 python manage.py migrate （ps： apply those changes to the database.）
 
 super(Blog, self).save(*args, **kwargs)
+
+python manage.py debugsqlshell

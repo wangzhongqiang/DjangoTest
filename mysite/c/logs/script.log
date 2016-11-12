@@ -1,0 +1,3 @@
+2016-11-11 10:22:27,291 [Thread-6:9112] [django.request:152] [WARNING]- Not Found: /favicon.ico
+2016-11-11 10:46:15,653 [Thread-9:9960] [django.request:152] [WARNING]- Not Found: /
+2016-11-11 19:58:04,434 [Thread-28:8664] [django.request:152] [WARNING]- Not Found: /favicon.ico

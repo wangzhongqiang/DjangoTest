@@ -135,11 +135,12 @@ class EntityManager(models.Manager):
 class Entity(models.Model):
     objects = models.Manager()
     entities = EntityManager()
-    blog = models.ForeignKey(Blog, related_name = 'entity_set')
+    blog = models.ForeignKey(Blog, related_name = 'entity_set' , null=True)
     headline = models.CharField(max_length=255)
-    body_text = models.TextField()
+    #body_text = models.TextField()
     pub_date = models.DateField()
     mod_date = models.DateField()
+    datetime = models.DateTimeField(null=True)
     authors = models.ManyToManyField(Author)
     n_comments = models.IntegerField()
     n_pingbacks = models.IntegerField()
@@ -152,6 +153,7 @@ class EntityDetail(models.Model):
     aentity = models.OneToOneField(Entity,on_delete=models.CASCADE)
     detail = models.TextField()
 
+"""
 class Event(models.Model):
    parent = models.ForeignKey(
        'self',
@@ -159,3 +161,20 @@ class Event(models.Model):
        related_name='children',
    )
    date = models.DateField()
+"""
+
+class Topping(models.Model):
+    name = models.CharField(max_length=30)
+
+class Pizza(models.Model):
+    name = models.CharField(max_length=50)
+    toppings = models.ManyToManyField(Topping)
+
+    def __str__(self):
+        return "%s(%s)"%(
+            self.name,", ".join(topping.name for topping in self.toppings.all()),
+        )
+
+class Restaurant(models.Model):
+    pizzas = models.ManyToManyField(Pizza, related_name='restaurants')
+    best_pizza = models.ForeignKey(Pizza, related_name='championed_by')
