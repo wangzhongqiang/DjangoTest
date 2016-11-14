@@ -46,6 +46,7 @@ class AUthorAdmin(admin.ModelAdmin):
 class EntityAdmin(admin.ModelAdmin):
 
     search_fields = ['headline','pub_date']
+    list_display = ('blog', 'headline', 'rating',"pub_date")
 class ToppingAdmin(admin.ModelAdmin):
     search_fields = ['name']
 class PizzaAdmin(admin.ModelAdmin):
@@ -62,3 +63,9 @@ admin.site.register(Entity, EntityAdmin)
 admin.site.register(Topping,ToppingAdmin)
 admin.site.register(Pizza,PizzaAdmin)
 admin.site.register(Restaurant,RestaurantAdmin)
+
+admin.site.register(CommonlyUsedModel)
+admin.site.register(ManagedModel)
+admin.site.register(Chapter)
+admin.site.register(Book)
+admin.site.register(Person)

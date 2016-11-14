@@ -22,6 +22,58 @@ datetime：用法和dates差不多，但是时区没有搞懂怎么改
 select_related：e = Entry.objects.get(id=5)， b = e.blog 访问外键时，两次查询数据库 e = Entry.objects.select_related('blog').get(id=5)，b = e.blog 只第一次访问数据库
 select_related(None)：返回所有的外键
 
+defer: 延迟加载 Model.objects.defer("headline", "body") Blog.objects.select_related().defer("entry__headline", "entry__body")
+my_queryset.defer(None) 清除延迟字段集
+如果save，那么只保存加载了的字段
+
+only：只加载，一般id都是要的，
+Model.objects.only("pub_date").only('headline') 只加载后一个，前一个only白费，但是，这个model不知怎么了，总是要加在headline，所以，又会单独一个一个调headline查询
+
+get_or_create： (obj, created) = Model.objects.get_or_create(itemname1 = ..., defaults = {'itemname2':......})
+在django视图中使用，多用post，不用get
+class Chapter:name unique ; class Book: chapters manyToMany Chapter	有实例 book1.chapters.get_or_create(name = )
+如果name的值和chapter和book有关系，那么 可以 false和true，如果没有关系，那么可以create，但是有的话，get会报错
+update_or_create： 更新数据
+obj, created = Person.objects.update_or_create(
+    name='John',
+    defaults={'name': 'Bob'},
+)
+
+bulk_create： 批量创建
+Entry.objects.bulk_create([    Entry(headline="Django 1.0 Released"),    Entry(headline="Breaking: Django is awesome") ])
+
+count():
+如果QuerySet还没有在内存中，那么使用count比较好，如果已经在内存中，那么  len(QuerySet) 比较快（不需要数据库查询），然后迭代什么的，用到计数都可以用len
+
+in_bulk	：Blog.objects.in_bulk([1,2,3] 或 [] 或 没有)
+返回  {1：obj, 2: obj},没找到返回  [], 无参 返回所有
+
+iterator() 大量只需访问一次的对象，可以用这个，性能和内存都好处
+自己测试了下： m = model.objecets.iterator(); for e in m: print e; 有输出，再for一次，却没有了, all()却是一直保持的
+
+latest , earliest
+model.objects.latest('itemname') ，说是传日期，测试下来，就是按这个参数排序，取第一或最后一个
+first ， last
+model.objects.first() 排完序后的第一个或最后一个
+
+aggregate ['?gr?g?t; (for v.) ??gr?ge?t] vi. 集合；聚集；合计
+from django.db.models import Count
+Blog.objects.aggregate(Count('entry')) 						{'entry__count': 16}
+Blog.objects.aggregate(number_of_entries=Count('entry')) 	{'number_of_entries': 16}
+
+exists()
+QuerySet.exists(), 更快： itemname in querySet , 如果内存已有了，那更快方法： if my_queryset: 
+还有if bool(my_queryset)
+
+update：外键不能更新
+Entry.objects.filter(pub_date__year=2010).update(comments_on=False, headline='This is old')
+
+
+
+
+
+
+
 
 
 ？？？？？？？？？？？？？？
@@ -35,3 +87,23 @@ Entity.objects.order_by('blog').distinct('blog')
 Entity.objects.order_by('author', 'pub_date').distinct('author', 'pub_date')
 Entity.objects.order_by('blog__name', 'mod_date').distinct('blog__name', 'mod_date')
 Entity.objects.order_by('author', 'pub_date').distinct('author')
+
+defer：不能延迟主键，试了，也没报错，外键和主表相连的字段
+
+only：
+Entry.objects.only("headline", "body").defer("body") 只加载headl
+Entry.objects.defer("body").only("headline", "body")两个都加载		....实际结果是两个效果一样，再说
+
+using：database的别名
+
+select_for_update() : 锁定列， select_for_update(nowait = True)，则called无阻碍， nowait的支持主要看数据库的平台
+支持的数据库在自动提交模式下有可能会出错，不支持的数据库在自动提交模式中不会出错
+
+raw 原生sql查询语句
+
+bulk_create：提到的一些注意事项，batch_size 貌似没用
+
+什么是queryset slice taken
+
+
+

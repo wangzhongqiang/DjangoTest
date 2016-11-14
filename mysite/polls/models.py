@@ -136,9 +136,10 @@ class Entity(models.Model):
     objects = models.Manager()
     entities = EntityManager()
     blog = models.ForeignKey(Blog, related_name = 'entity_set' , null=True)
-    headline = models.CharField(max_length=255)
     #body_text = models.TextField()
-    pub_date = models.DateField()
+    name = models.CharField(max_length=20, null=True)
+    pub_date = models.DateField(null=True)
+    headline = models.CharField(max_length=255)
     mod_date = models.DateField()
     datetime = models.DateTimeField(null=True)
     authors = models.ManyToManyField(Author)
@@ -178,3 +179,27 @@ class Pizza(models.Model):
 class Restaurant(models.Model):
     pizzas = models.ManyToManyField(Pizza, related_name='restaurants')
     best_pizza = models.ForeignKey(Pizza, related_name='championed_by')
+
+
+#----------------------test--------------------------
+class CommonlyUsedModel(models.Model):
+    f1 = models.CharField(max_length=10)
+
+    class Meta:
+        managed = False
+        db_table = 'app_largetable'
+
+class ManagedModel(models.Model):
+    f1 = models.CharField(max_length=10)
+    f2 = models.CharField(max_length=10)
+
+    class Meta:
+        db_table = 'app_largetable'
+
+
+class Chapter(models.Model):
+    title = models.CharField(max_length=255, unique=True)
+
+class Book(models.Model):
+    title = models.CharField(max_length=256)
+    chapters = models.ManyToManyField(Chapter)

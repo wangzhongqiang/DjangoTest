@@ -11,3 +11,5 @@ class Fruit(models.Model):
         on_delete=models.CASCADE
     )
 
+
+Fruit.objects.bulk_create()
