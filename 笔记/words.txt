@@ -197,6 +197,62 @@ respective [rɪ'spektɪv]		adj. 分别的，各自的
 
 optimization [,ɒptɪmaɪ'zeɪʃən]	n. 最佳化，最优化
 
+advanced [æd'vɑːnst]		adj. 先进的；高级的；晚期的；年老的
+
+duplicate [ˈdjuːplɪkeɪt]	vt. 复制；使加倍 n. 副本；复制品 adj. 复制的；二重的 vi. 复制；重复
+
+immediately [ɪ'miːdɪətlɪ]	adv. 立即，立刻；直接地 conj. 一…就
+
+remainder [rɪ'meɪndə]	n. [数] 余数，残余；剩余物；其余的人	adj. 剩余的；吃剩的 	vi.vt. 廉价出售；削价出售
+
+transaction [træn'zækʃən; -'sæk-; trɑ:n-]	n. 交易；事务；办理；会报，学报
+
+isolation [aɪsə'leɪʃ(ə)n]	n. 隔离；孤立；[电] 绝缘；[化学] 离析
+
+fetch [fetʃ]		vt. 取来；接来；到达；吸引 vi. 拿；取物；卖得 n. 取得；诡计
+
+perform  [pə'fɔːm]	vt. 执行；完成；演奏 vi. 执行，机器运转；表演
+
+instantly ['ɪnst(ə)ntlɪ] adv. 立即地；马上地；即刻地
+
+approach [ə'prəʊtʃ]		n. 方法；途径；接近 vt. 接近；着手处理 vi. 靠近
+
+emit  [ɪ'mɪt]		vt. 发出，放射；发行；发表
+signal ['sɪgn(ə)l]	n. 信号；暗号；导火线 vt. 标志；用信号通知；表示 adj. 显著的；作为信号的vi. 发信号
+
+assumed [ə'sjuːmd]	adj. 假定的；假装的
+
+case-sensitive [keis 'sensitiV]		adj. 有大小写之分的
+
+cautious ['kɔːʃəs]	adj. 谨慎的；十分小心的
+
+optimize ['ɒptɪmaɪz]	vt. 使最优化，使完善 vi. 优化；持乐观态度
+
+chaining ['tʃeiniŋ]		n. [计] 链接；链锁作用；用链量距离
+
+additional 英[ə'dɪʃ(ə)n(ə)l]  	adj. 附加的，额外的
+
+correspond [kɒrɪ'spɒnd]		vi. 符合，一致；相应；通信
+
+emulate ['emjʊleɪt]		vt. 仿真；模仿；尽力赶上；同…竞争 n. 仿真；仿效
+
+attempt [ə'tem(p)t]		n. 企图，试图；攻击 vt. 企图，试图；尝试
+
+reuse [riː'juːz]		n. 重新使用，再用 vt. 再使用
+
+condition  [kən'dɪʃ(ə)n]	n. 条件；情况；环境；身份 vt. 决定；使适应；使健康；以…为条件
+
+permit  [pə'mɪt]		vi. 许可；允许	vt. 许可；允许 n. 许可证，执照
+
+
+
+
+
+
+
+
+
+
 
 
 

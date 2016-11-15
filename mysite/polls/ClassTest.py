@@ -1,4 +1,5 @@
 from django.db import  models
+from django.db.models import Prefetch
 from django.db.models import QuerySet
 from django.db.models.functions import Coalesce
 
@@ -10,4 +11,7 @@ class Fruit(models.Model):
         Fruit1,
         on_delete=models.CASCADE
     )
+
+
+Fruit.objects.bulk_create()
 
