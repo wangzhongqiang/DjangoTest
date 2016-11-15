@@ -203,3 +203,13 @@ class Chapter(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=256)
     chapters = models.ManyToManyField(Chapter)
+
+
+class Boy2(models.Model):
+    name = models.CharField(max_length=30)
+    def __str__(self):
+        return self.name
+
+class Mama2(models.Model):
+    name = models.CharField(max_length=30)
+    boys = models.ForeignKey(Boy2, on_delete=models.DO_NOTHING)

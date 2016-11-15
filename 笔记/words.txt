@@ -217,6 +217,40 @@ instantly ['ɪnst(ə)ntlɪ] adv. 立即地；马上地；即刻地
 
 approach [ə'prəʊtʃ]		n. 方法；途径；接近 vt. 接近；着手处理 vi. 靠近
 
+emit  [ɪ'mɪt]		vt. 发出，放射；发行；发表
+signal ['sɪgn(ə)l]	n. 信号；暗号；导火线 vt. 标志；用信号通知；表示 adj. 显著的；作为信号的vi. 发信号
+
+assumed [ə'sjuːmd]	adj. 假定的；假装的
+
+case-sensitive [keis 'sensitiV]		adj. 有大小写之分的
+
+cautious ['kɔːʃəs]	adj. 谨慎的；十分小心的
+
+optimize ['ɒptɪmaɪz]	vt. 使最优化，使完善 vi. 优化；持乐观态度
+
+chaining ['tʃeiniŋ]		n. [计] 链接；链锁作用；用链量距离
+
+additional 英[ə'dɪʃ(ə)n(ə)l]  	adj. 附加的，额外的
+
+correspond [kɒrɪ'spɒnd]		vi. 符合，一致；相应；通信
+
+emulate ['emjʊleɪt]		vt. 仿真；模仿；尽力赶上；同…竞争 n. 仿真；仿效
+
+attempt [ə'tem(p)t]		n. 企图，试图；攻击 vt. 企图，试图；尝试
+
+reuse [riː'juːz]		n. 重新使用，再用 vt. 再使用
+
+condition  [kən'dɪʃ(ə)n]	n. 条件；情况；环境；身份 vt. 决定；使适应；使健康；以…为条件
+
+permit  [pə'mɪt]		vi. 许可；允许	vt. 许可；允许 n. 许可证，执照
+
+
+
+
+
+
+
+
 
 
 

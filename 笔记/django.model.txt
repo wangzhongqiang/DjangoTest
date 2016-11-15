@@ -29,7 +29,7 @@ Model.objects.order_by('item')[0]	按item排序，然后获取第一个
 查询
 pub_date__lte ： <=
 pub_date__gte ： >=
-① exact 精确
+① exact 精确，确实区分了大小写
 Model.objects.get(headline__exact="Cat bites dog")
 等价于：SELECT ... WHERE headline = 'Cat bites dog';
 如果没有双下划线，查询类型就假定是exact
@@ -64,6 +64,38 @@ many-to-many （我的理解，直接当QuerySet使用）e.authors.filter(name__
 
 one-to-one： model1: a = oneToOne(model2) model2.model1(小写) 直接访问  
 model2.model1 = b, b.a 就是model2了，原来的b.a变了,多个model2指向一个model1，但是model1只指向一个model1
+
+
+in：
+model.objects.filter(id__in = [1,2] 或 (1,2) or { 1,3})
+外键model1的QuerySet，model.objects.filter(waijian__in = queryset)；
+通过外键字段查找，那么QuerySet只提取结果中的一个响应字段：
+正确：inner_qs = Blog.objects.filter(name__contains='Ch').values('name')
+错误：inner_qs = Blog.objects.filter(name__contains='Ch').values('name', 'id')
+entries = Entry.objects.filter(blog__name__in=inner_qs)
+
+range 数字，日期，characters
+improt datetime, start = datetime.date(...) end = datetime.date(...) Entity.objects.filter(pub_date__range= (start,end))
+
+datetime 和 date 两种数据
+Entity.objects.filter(pub_date__date = datetime.date(...)) 报错 相反 pub_date = datetime.date(...)
+Entity.objects.filter(pub_date__year or month or day or week_day(星期天是1，周六是7))
+datetime 和 time 两种数据
+Entity.objects.filter(datetime__hour (0~23) or  minute (0~59) or second(0~59))
+
+isnull：
+Entity.objects.filter(pub_date__isnull = True)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -118,10 +150,14 @@ Using a custom reverse manager
 one-to-many 就是外键？
 
 
+search 只对mysql支持的api，已弃用，使用自定义查找
 
+regex
+iregex
+Entry.objects.get(title__regex=r'^(An?|The) +')
 
-
-
+Aggregate 聚合函数
+prefetch_related_objects
 
 
 

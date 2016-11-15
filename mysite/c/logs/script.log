@@ -212,3 +212,4 @@ Traceback (most recent call last):
   File "C:\Python35\lib\site-packages\django\db\backends\sqlite3\base.py", line 337, in execute
     return Database.Cursor.execute(self, query, params)
 django.db.utils.IntegrityError: NOT NULL constraint failed: app_largetable.f2
+2016-11-15 09:52:16,369 [Thread-31:5400] [django.request:152] [WARNING]- Not Found: /favicon.ico
