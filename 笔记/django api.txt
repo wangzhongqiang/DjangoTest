@@ -46,7 +46,7 @@ count():
 如果QuerySet还没有在内存中，那么使用count比较好，如果已经在内存中，那么  len(QuerySet) 比较快（不需要数据库查询），然后迭代什么的，用到计数都可以用len
 
 in_bulk	：Blog.objects.in_bulk([1,2,3] 或 [] 或 没有)
-返回  {1：obj, 2: obj},没找到返回  [], 无参 返回所有
+返回  {1：obj, 2: obj},没找到返回  {}, 无参 返回所有
 
 iterator() 大量只需访问一次的对象，可以用这个，性能和内存都好处
 自己测试了下： m = model.objecets.iterator(); for e in m: print e; 有输出，再for一次，却没有了, all()却是一直保持的
