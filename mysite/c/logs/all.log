@@ -15466,3 +15466,11 @@ django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_erro
 2016-11-15 19:59:46,506 [MainThread:13128] [django.db.backends:90] [DEBUG]- (0.000) SELECT "polls_choice"."id", "polls_choice"."question_id", "polls_choice"."choice_text", "polls_choice"."votes" FROM "polls_choice" WHERE ("polls_choice"."votes" > 3 AND "polls_choice"."question_id" IN (1, 2, 3, 4)); args=(3, 1, 2, 3, 4)
 2016-11-15 20:00:32,108 [MainThread:13128] [django.db.backends:90] [DEBUG]- (0.000) SELECT "polls_question"."id", "polls_question"."question_text", "polls_question"."pub_date" FROM "polls_question"; args=()
 2016-11-15 20:00:32,109 [MainThread:13128] [django.db.backends:90] [DEBUG]- (0.000) SELECT "polls_choice"."id", "polls_choice"."question_id", "polls_choice"."choice_text", "polls_choice"."votes" FROM "polls_choice" WHERE ("polls_choice"."votes" > 3 AND "polls_choice"."question_id" IN (1, 2, 3, 4)); args=(3, 1, 2, 3, 4)
+2016-11-17 09:38:11,394 [MainThread:6608] [django.db.backends:90] [DEBUG]- (0.002) SELECT "polls_blog"."id", "polls_blog"."name", "polls_blog"."tagline", COUNT("polls_entity"."id") AS "entity_set__count" FROM "polls_blog" LEFT OUTER JOIN "polls_entity" ON ("polls_blog"."id" = "polls_entity"."blog_id") GROUP BY "polls_blog"."id", "polls_blog"."name", "polls_blog"."tagline" ORDER BY "polls_blog"."name" ASC LIMIT 21; args=()
+2016-11-17 09:43:07,956 [MainThread:6608] [django.db.backends:90] [DEBUG]- (0.000) SELECT "polls_blog"."id", "polls_blog"."name", "polls_blog"."tagline" FROM "polls_blog" WHERE "polls_blog"."id" IN (1, 2, 3); args=(1, 2, 3)
+2016-11-17 09:43:13,835 [MainThread:6608] [django.db.backends:90] [DEBUG]- (0.001) SELECT "polls_blog"."id", "polls_blog"."name", "polls_blog"."tagline" FROM "polls_blog" ORDER BY "polls_blog"."name" ASC; args=()
+2016-11-17 19:40:58,723 [Dummy-1:15344] [django.db.backends:90] [DEBUG]- (0.096) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2016-11-17 19:40:58,735 [Dummy-1:15344] [django.db.backends:90] [DEBUG]- (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
